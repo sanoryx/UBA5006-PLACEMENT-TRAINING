@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int score = 0;
+
+        System.out.println("2 4 6 8 ?");
+        System.out.println("Hint: Add 2 each time");
+        int a = sc.nextInt();
+        if (a == 10) {
+            System.out.println("Correct");
+            score++;
+        } else {
+            System.out.println("Wrong, answer is 10");
+        }
+
+        System.out.println("5 10 15 20 ?");
+        System.out.println("Hint: Add 5 each time");
+        int b = sc.nextInt();
+        if (b == 25) {
+            System.out.println("Correct");
+            score++;
+        } else {
+            System.out.println("Wrong, answer is 25");
+        }
+
+        System.out.println("1 1 2 3 5 ?");
+        System.out.println("Hint: Sum of previous two numbers");
+        int c = sc.nextInt();
+        if (c == 8) {
+            System.out.println("Correct");
+            score++;
+        } else {
+            System.out.println("Wrong, answer is 8");
+        }
+
+        System.out.println("Score: " + score);
+
+        sc.close();
+    }
+}
