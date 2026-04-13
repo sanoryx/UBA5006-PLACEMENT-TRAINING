@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+    int source, destination;
+    int fare = 0;
+    int booked = 0;
+
+    while (1) {
+        printf("\n--- Metro Train Booking System ---\n");
+        printf("1. View stations\n");
+        printf("2. Book ticket\n");
+        printf("3. Show ticket details\n");
+        printf("4. Calculate fare\n");
+        printf("5. Exit\n");
+
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid input. Exiting...\n");
+            break;
+        }
+
+        if (choice == 1) {
+            printf("Stations:\n");
+            printf("1. A\n2. B\n3. C\n4. D\n5. E\n");
+        }
+
+        else if (choice == 2) {
+            printf("Enter source station (1-5): ");
+            scanf("%d", &source);
+
+            printf("Enter destination station (1-5): ");
+            scanf("%d", &destination);
+
+            if (source >= 1 && source <= 5 && destination >= 1 && destination <= 5) {
+                booked = 1;
+                printf("Ticket booked successfully\n");
+            } else {
+                printf("Invalid stations\n");
+            }
+        }
+
+        else if (choice == 3) {
+            if (booked) {
+                printf("Source: %d\n", source);
+                printf("Destination: %d\n", destination);
+            } else {
+                printf("No ticket booked\n");
+            }
+        }
+
+        else if (choice == 4) {
+            if (booked) {
+                int diff = source - destination;
+                if (diff < 0) diff = -diff;
+                fare = diff * 10;
+                printf("Fare: %d\n", fare);
+            } else {
+                printf("Book ticket first\n");
+            }
+        }
+
+        else if (choice == 5) {
+            printf("Exiting...\n");
+            break;
+        }
+
+        else {
+            printf("Invalid choice\n");
+        }
+    }
+
+    return 0;
+}
