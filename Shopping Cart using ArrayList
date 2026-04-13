@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> cart = new ArrayList<>();
+
+        int choice;
+
+        do {
+            System.out.println("\n1. Add Item");
+            System.out.println("2. View Cart");
+            System.out.println("3. Total Price");
+            System.out.println("4. Exit");
+
+            choice = sc.nextInt();
+
+            if (choice == 1) {
+                System.out.print("Enter price: ");
+                int price = sc.nextInt();
+                cart.add(price);
+                System.out.println("Item added");
+            }
+
+            else if (choice == 2) {
+                if (cart.isEmpty()) {
+                    System.out.println("Cart is empty");
+                } else {
+                    for (int x : cart) {
+                        System.out.print(x + " ");
+                    }
+                    System.out.println();
+                }
+            }
+
+            else if (choice == 3) {
+                int total = 0;
+                for (int x : cart) {
+                    total += x;
+                }
+                System.out.println("Total: " + total);
+            }
+
+        } while (choice != 4);
+
+        System.out.println("Thank you");
+    }
+}
